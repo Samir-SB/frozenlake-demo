@@ -9,7 +9,7 @@ import utils
 # agent have (memory, env, ep_greedy)
 class QLearning(Agent):
     def __init__(self):
-        print('Create a DQN ------------')
+        print('Create a QLearning Agent ------------')
         super().__init__()
 
     def train_model(self, episodes, max_step, training_file):
