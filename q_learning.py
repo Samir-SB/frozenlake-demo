@@ -1,9 +1,6 @@
-from collections import deque
 import numpy as np
-import random
 from agent import Agent
 import os
-import utils
 
 
 # agent have (memory, env, ep_greedy)
@@ -39,7 +36,8 @@ class QLearning(Agent):
                 if done:
                     break
             #self.log_reward_of_episode(episode, c, step, reward)
-            self.save_model(training_file)
+            if (c % 30):
+                self.save_model(training_file)
 
     def all_Qs(self, state):
         return self.q_table[state]

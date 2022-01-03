@@ -10,21 +10,21 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 
 class Agent:
-    def __init__(self, lr=0.001, gamma=.99, start=1, end=0.05, decay=.99, test_episodes=25, min_accuracy=.85):
+    def __init__(self, lr=0.001, gamma=.99, start=1, end=0.05, decay=.99, test_episodes=25, traget_accuracy=.85):
         print('Create & initialize an agent ------------')
         env = utils.createEnvironment()
         self.set_environemnt(env)
         self.set_hyperparameters(lr, gamma)
         self.set_ep_greedy_parameters(start, end, decay)
-        self.set_evaluation_parameters(test_episodes, min_accuracy)
+        self.set_evaluation_parameters(test_episodes, traget_accuracy)
 
     def set_hyperparameters(self, lr=0.001, gamma=0.99):
         self.learning_rate = lr
         self.gamma = gamma
 
-    def set_evaluation_parameters(self, test_episodes, min_accuracy):
+    def set_evaluation_parameters(self, test_episodes, traget_accuracy):
         self.test_episodes = test_episodes
-        self.min_accuracy = min_accuracy
+        self.traget_accuracy = traget_accuracy
 
     def set_environemnt(self, env):
         self.env = env
