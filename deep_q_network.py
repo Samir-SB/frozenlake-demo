@@ -48,7 +48,7 @@ class DQN(Agent):
             self.replay_experiences()
             accuracy = self.evaluate()
             print('accuracy = ', accuracy)
-            if (accuracy > self.min_accuracy):
+            if (accuracy > self.traget_accuracy):
                 self.save_model(f'converged/converged-at-{episode}')
                 break
 

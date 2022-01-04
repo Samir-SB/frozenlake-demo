@@ -32,7 +32,8 @@ def random_env():
 
 
 def createEnvironment(custom_map=get_custom_map()):
-    env = gym.make("FrozenLake-v0", desc=custom_map, is_slippery=False)
+    env_version = 'FrozenLake-v1' # 'FrozenLake-v0'
+    env = gym.make(env_version, desc=custom_map, is_slippery=False)
     return env
 
 
