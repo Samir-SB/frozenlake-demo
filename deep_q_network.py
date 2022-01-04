@@ -49,7 +49,7 @@ class DQN(Agent):
             accuracy = self.evaluate()
             print('accuracy = ', accuracy)
             if (accuracy > self.traget_accuracy):
-                self.save_model(f'converged/converged-at-{episode}')
+                # self.save_model(f'converged/converged-at-{episode}')
                 break
 
             if episode % 15 == 0:

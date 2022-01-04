@@ -51,7 +51,8 @@ converged_file = f'converged-{today()}'
 
 # Deep Q-network
 agent = DQN()
-start_file = 'converged/converged-at-340'
+#start_file = 'converged/converged-at-340'
+start_file = 'dqn/converged-2022-01-04'
 agent.set_replay_prameters(5000, 1000, 32)
 
 # qlearing table

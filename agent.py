@@ -39,7 +39,7 @@ class Agent:
     def all_Qs(self, state):
         pass
 
-    def predict(self, state):
+    def act(self, state):
         return np.argmax(self.all_Qs(state))
 
     def get_epsilon(self, step=0):
@@ -49,7 +49,7 @@ class Agent:
         epsilon = self.get_epsilon(step)
         random_selection = (np.random.rand() <= epsilon)
         return np.random.randint(0, self.action_size) if(random_selection) \
-            else self.predict(state)
+            else self.act(state)
 
     def evaluate(self):
         total_reward = 0
@@ -60,7 +60,7 @@ class Agent:
             step = 0
             while True:
                 step = step + 1
-                action = self.predict(state)
+                action = self.act(state)
                 next_state, reward, done, _ = env.step(action)
                 episode_reward += reward
                 if(done or (next_state == state) or (step > self.state_size)):
@@ -78,9 +78,10 @@ class Agent:
         for i in range(self.state_size):
             if 0 == (i % ROW_SIZE):
                 print()
-            print(display_actions[self.predict(i)], end='')
+            print(display_actions[self.act(i)], end='')
         print()
 
     def log_reward_of_episode(self, episode, global_step, step, reward):
         print(episode, end=': ')
         utils.print_line(global_step, self.get_epsilon(episode), step, reward)
+ 
